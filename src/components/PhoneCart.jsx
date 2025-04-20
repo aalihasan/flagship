@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const PhoneCart = ({ phone }) => {
-  const { image, name, description } = phone || {};
+  const { image, name, description,id } = phone || {};
   return (
     <div className="card bg-base-100 shadow-sm">
       <figure>
@@ -12,7 +12,7 @@ const PhoneCart = ({ phone }) => {
         <h2 className="card-title">{name}</h2>
         <p>{description}</p>
         <div className="card-actions justify-end">
-          <Link to="/phone-details">
+          <Link to={`/phone-details/${id}`}>
             <button
               href="#_"
               className="relative inline-block px-4 py-2 font-medium group cursor-pointer"

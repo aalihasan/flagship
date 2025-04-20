@@ -11,13 +11,13 @@ const router = createBrowserRouter([
   {
     path: '/',
     Component: mainLayout,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
         index: true,
         Component: home,
-        hydrateFallbackElement:<p>loading.......</p>,
-        loader:()=> fetch('phones.json')
+        hydrateFallbackElement: <p>loading.......</p>,
+        loader: () => fetch('../phones.json'),
       },
       {
         path: '/favorites',
@@ -28,12 +28,14 @@ const router = createBrowserRouter([
         Component: About,
       },
       {
-        path: '/phone-details',
-        Component:PhoneDetails,
+        path: '/phone-details/:id',
+        Component: PhoneDetails,
+        hydrateFallbackElement: <p>loading.......</p>,
+        loader: () => fetch('../phones.json'),
       },
       {
         path: '/cart',
-        Component:Cart
+        Component: Cart,
       },
     ],
   },
